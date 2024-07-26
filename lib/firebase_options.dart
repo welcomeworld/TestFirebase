@@ -17,38 +17,19 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions are not supported for this platform.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
-      case TargetPlatform.iOS:
-        return ios;
-      case TargetPlatform.macOS:
-        return macos;
-      case TargetPlatform.windows:
-        return windows;
-      case TargetPlatform.linux:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
       default:
         throw UnsupportedError(
           'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
   }
-
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCAsn_PZaZ6cARdQV_IRo41qAkUu58H8MA',
-    appId: '1:782020158120:web:c4cc9415a3f15f3108189d',
-    messagingSenderId: '782020158120',
-    projectId: 'testflutterfirebase-577fc',
-    authDomain: 'testflutterfirebase-577fc.firebaseapp.com',
-    storageBucket: 'testflutterfirebase-577fc.appspot.com',
-    measurementId: 'G-VJH1JEP2S8',
-  );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyB5_9B15V29VKvZFHc1Cfab_5PqNu2KP90',
@@ -58,31 +39,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'testflutterfirebase-577fc.appspot.com',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyBydonjaHNyVOxkLdfxb-c9FaDIRkLm-vY',
-    appId: '1:782020158120:ios:98921793a9bd2af008189d',
-    messagingSenderId: '782020158120',
-    projectId: 'testflutterfirebase-577fc',
-    storageBucket: 'testflutterfirebase-577fc.appspot.com',
-    iosBundleId: 'com.github.welcomeworld.testfirebase',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyBydonjaHNyVOxkLdfxb-c9FaDIRkLm-vY',
-    appId: '1:782020158120:ios:98921793a9bd2af008189d',
-    messagingSenderId: '782020158120',
-    projectId: 'testflutterfirebase-577fc',
-    storageBucket: 'testflutterfirebase-577fc.appspot.com',
-    iosBundleId: 'com.github.welcomeworld.testfirebase',
-  );
-
-  static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyCAsn_PZaZ6cARdQV_IRo41qAkUu58H8MA',
-    appId: '1:782020158120:web:204218c3704d0e3208189d',
-    messagingSenderId: '782020158120',
-    projectId: 'testflutterfirebase-577fc',
-    authDomain: 'testflutterfirebase-577fc.firebaseapp.com',
-    storageBucket: 'testflutterfirebase-577fc.appspot.com',
-    measurementId: 'G-81QG0T4NQH',
-  );
 }
